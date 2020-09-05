@@ -12,7 +12,7 @@ import datetime
 import seaborn as sns
 
 def set_inventory(name, quantity):
-    cnn = sqlite3.connect(r"C:\Users\evan4\Downloads\BakeryTest\database.db")
+    cnn = sqlite3.connect(r"database.db")
     cur = cnn.cursor()
     
     cur.execute("UPDATE ingredients SET inventory_quantity = " + \
@@ -22,7 +22,7 @@ def set_inventory(name, quantity):
     cnn.close()
     
 def add_ingredient(name, unit: str, unit_cost = 0, inventory_qty = 0):
-    cnn = sqlite3.connect(r"C:\Users\evan4\Downloads\BakeryTest\database.db")
+    cnn = sqlite3.connect(r"database.db")
     cur = cnn.cursor()
     
     sql = "INSERT INTO ingredients ("\
@@ -36,7 +36,7 @@ def add_ingredient(name, unit: str, unit_cost = 0, inventory_qty = 0):
 def add_expense(item, supplier, quantity = 1, category = "ingredient", unit = "unit", \
                 brand = None, price = 0, note = None, date = str(datetime.datetime.now().date())):
     #Update the quantity if the purchased item is an ingredient
-    cnn = sqlite3.connect(r"C:\Users\evan4\Downloads\BakeryTest\database.db")
+    cnn = sqlite3.connect(r"database.db")
     cur = cnn.cursor()
     
     if category.lower() == "ingredient":
@@ -61,7 +61,7 @@ def add_expense(item, supplier, quantity = 1, category = "ingredient", unit = "u
 
 def add_product(product_type, name, price, recipe, batch_yield, note = None):
     # Recipe takes the form [(ingredient, qty), ...]
-    cnn = sqlite3.connect(r"C:\Users\evan4\Downloads\BakeryTest\database.db")
+    cnn = sqlite3.connect(r"database.db")
     cur = cnn.cursor()
     
     cost = 0
@@ -144,7 +144,7 @@ def add_sale(customer, product, quantity, total, discounted = False,
             cur.execute("UPDATE ingredients SET inventory_quantity = " + \
                 str(new_q) + " WHERE ingredient_name = '" + i_name + "';")
         
-    cnn = sqlite3.connect(r"C:\Users\evan4\Downloads\BakeryTest\database.db")
+    cnn = sqlite3.connect(r"database.db")
     cur = cnn.cursor()
     
     add_command = "INSERT INTO sales (" \
@@ -171,7 +171,7 @@ def add_sale(customer, product, quantity, total, discounted = False,
     cnn.close()
                                
 def get_tables(cur):
-    cnn = sqlite3.connect(r"C:\Users\evan4\Downloads\BakeryTest\database.db")
+    cnn = sqlite3.connect(r"database.db")
     cur = cnn.cursor()
     
     cur.execute("SELECT name FROM sqlite_master WHERE type = 'table';")
@@ -182,7 +182,7 @@ def get_tables(cur):
     return res
     
 def sql_to_pd(table_name):
-    cnn = sqlite3.connect(r"C:\Users\evan4\Downloads\BakeryTest\database.db")
+    cnn = sqlite3.connect(r"database.db")
     df = pd.read_sql_query("SELECT * FROM " + table_name, cnn)
     cnn.close()
     return df
