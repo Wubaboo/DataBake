@@ -9,8 +9,6 @@ import sqlite3
 import pandas as pd
 import datetime
 
-import seaborn as sns
-
 def set_inventory(name, quantity):
     cnn = sqlite3.connect(r"database.db")
     cur = cnn.cursor()
