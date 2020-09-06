@@ -25,7 +25,6 @@ Basic Visualizations are displayed in the GUI.
 - Best and worst selling products
 
 ## Adding Data
-- All data in `database.db` should be removed prior to usage.
 -	The `Add Expense` button in the GUI adds an expense to the `expense` table. Typing "ingredient" in the "ingredient/equipemnt" input line will also add the ingredient to the `ingredients` table if it does not already exist, or update the inventory_quantity of the ingredient if the ingredient is already in the table.
 - The `Add Sale` button adds a sale to the `sales` table and deducts inventory quantity from each ingredient in the `ingredients` table
 - The `Add Product` button adds a product to the `products` table and its recipe to the `recipes` table.
