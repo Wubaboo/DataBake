@@ -299,7 +299,7 @@ class Plot(QVBoxLayout):
         sns.barplot(x = "product_name", y = "value", hue = "variable", data = res, ax = self.ax).set_title("Product Prices and Costs")
         self.figure.canvas.draw_idle()
 
-    def plotsummary(self, n = 1):
+    def plotsummary(self, n = 2):
         self.ax.clear()
         sales = database.sql_to_pd("sales")
         grouped = sales.groupby(["product"]).sum().reset_index()
