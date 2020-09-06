@@ -26,6 +26,9 @@ Basic Visualizations are displayed in the GUI.
 -	The `Add Expense` button in the GUI adds an expense to the `expense` table. Typing "ingredient" in the "ingredient/equipemnt" input line will also add the ingredient to the `ingredients` table if it does not already exist, or update the inventory_quantity of the ingredient if the ingredient is already in the table.
 - The `Add Sale` button adds a sale to the `sales` table and deducts inventory quantity from each ingredient in the `ingredients` table
 - The `Add Product` button adds a product to the `products` table and its recipe to the `recipes` table.
+	- The product `type` can be "set" or "component"
+		- A `set` product is a collection of final products (such as an assorted party tray)
+		- A `component` is an incomplete product that is used as ingredients for other products. These are also added to the `ingredients` table. 
 	- each ingredient in the recipe should be on a new row. The format to add a recipe is:
 		
 		ingredient1_name, ingredient1_quantity
