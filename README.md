@@ -1,6 +1,8 @@
 # DataBake
 GUI and Database for baking needs. `database.py` uses sqlite3 to interact with `database.db`. `databake.py` is the GUI.
 
+![databake screenshot](https://github.com/Wubaboo/DataBake/blob/master/screenshot.png?raw=true)
+
 ### Baking Recipes 
 The `products` table in database.db keeps track of all products (final products, product components, and sets of products), their costs to produce, and their selling price.
 The `recipes` table keeps track of the ingredients needed for each of the products in the `products` table, and their costs per batch.
